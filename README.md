@@ -1,6 +1,6 @@
 # Apple Cursor
 
-Open source macOS Cursors for `Windows` and `Linux` with _HiDPI Support_.
+Open source macOS Cursors (with themed hands) for `Windows` and `Linux` with _HiDPI Support_.
 
 
 <p align="center">
