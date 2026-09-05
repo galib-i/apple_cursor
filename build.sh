@@ -29,6 +29,9 @@ if ! type -p ctgen >/dev/null; then
   exit 127 # exit program with "command not found" error code
 fi
 
+# Render SVGs to PNGs
+python render.py
+
 declare -A names
 names["macOS"]=$(with_version "macOS")
 names["macOS-White"]=$(with_version "White macOS")
@@ -76,7 +79,7 @@ wait $PID
 
 # Compressing macOS-*-Windows
 for key in "${!names[@]}"; do
-  zip -rv "../bin/${key}-Windows.zip" "${key}-Regular-Windows" "${key}-Large-Windows" "${key}-Extra-Large-Windows" &
+  python -m zipfile -c "../bin/${key}-Windows.zip" "${key}-Regular-Windows" "${key}-Large-Windows" "${key}-Extra-Large-Windows" &
   PID=$!
   wait $PID
 done
@@ -85,4 +88,4 @@ cd ..
 
 # Copying License File for 'bitmaps'
 cp LICENSE bitmaps/
-zip -rv bin/bitmaps.zip bitmaps
+python -m zipfile -c bin/bitmaps.zip bitmaps

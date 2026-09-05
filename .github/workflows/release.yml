@@ -1,0 +1,32 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Installing PyPi Dependencies
+        run: |
+          uv venv
+          uv pip install clickgen resvg-py
+
+      - name: Build
+        run: uv run bash build.sh
+
+      - name: Release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: bin/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
