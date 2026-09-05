@@ -31,7 +31,7 @@ def main():
     for theme, settings in config.items():
         in_dir = settings["dir"]
         out_dir = settings["out"]
-        colours = settings["colors"]
+        colours = settings["colours"]
         os.makedirs(out_dir, exist_ok=True)
         print(f"  -> Rendering theme: {theme} into {out_dir}/")
 

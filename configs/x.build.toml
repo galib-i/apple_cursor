@@ -1,7 +1,7 @@
 [theme]
 name = 'macOS'
-comment = 'macOS Xcursors'
-website = 'https://github.com/ful1e5/apple_cursor'
+comment = 'macOS Xcursors (fork of ful1e5/apple_cursor)'
+website = 'https://github.com/galib-i/apple_cursor'
 
 [config]
 bitmaps_dir = ''   # This config will assigned with `ctgen -d <path>`
